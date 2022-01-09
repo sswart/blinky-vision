@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.31911.260
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlinkyVision", "BlinkyVision\BlinkyVision.csproj", "{623BF411-376B-43D4-ACEC-18306F21D6FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{77E95181-FCBF-4966-97E8-94A9B4E0209B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{623BF411-376B-43D4-ACEC-18306F21D6FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{623BF411-376B-43D4-ACEC-18306F21D6FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{623BF411-376B-43D4-ACEC-18306F21D6FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{623BF411-376B-43D4-ACEC-18306F21D6FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77E95181-FCBF-4966-97E8-94A9B4E0209B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77E95181-FCBF-4966-97E8-94A9B4E0209B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77E95181-FCBF-4966-97E8-94A9B4E0209B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77E95181-FCBF-4966-97E8-94A9B4E0209B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {67CA587B-B987-4825-A103-C1EA820575F1}
+	EndGlobalSection
+EndGlobal
