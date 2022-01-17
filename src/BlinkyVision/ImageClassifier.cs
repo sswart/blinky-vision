@@ -9,7 +9,7 @@ namespace BlinkyVision
         public ImageClassifier(IOptions<CustomVisionSettings> settings)
         {
             _settings = settings.Value;
-            if (_settings.Endpoint == null || _settings.Key == null)
+            if (_settings.Endpoint == null || _settings.Key == null || _settings.ProjectId == null || _settings.Iteration == null)
             {
                 throw new ApplicationException("Invalid settings");
             }
@@ -40,7 +40,7 @@ namespace BlinkyVision
             };
             return predictionApi;
         }
-        private static async Task<IEnumerable<FrameInfo>> ClassifyImagesAsync(CustomVisionPredictionClient client, string folder)
+        private async Task<IEnumerable<FrameInfo>> ClassifyImagesAsync(CustomVisionPredictionClient client, string folder)
         {
             var rv = new List<FrameInfo>();
             var pngFiles = Directory.GetFiles(folder).Where(f => f.EndsWith(".png"));
@@ -49,8 +49,8 @@ namespace BlinkyVision
             foreach (var file in pngFiles)
             {
                 using var stream = File.OpenRead(file);
-                var result = await client.ClassifyImageAsync(Guid.Parse("70212ba0-beb0-45d1-970c-b055395b5103"), "Iteration3", stream);
-                var number = new string(file.Where(c => char.IsDigit(c)).ToArray());
+                var result = await client.ClassifyImageAsync(_settings.ProjectId!.Value, _settings.Iteration, stream);
+                var number = new string(Path.GetFileName(file).Where(c => char.IsDigit(c)).ToArray());
                 var frameNumber = int.Parse(number);
                 var tagname = result.Predictions.MaxBy(model => model.Probability)?.TagName;
 

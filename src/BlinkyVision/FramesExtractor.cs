@@ -22,13 +22,13 @@ namespace BlinkyVision
             }
 
             Directory.CreateDirectory(folder);
-            File.Copy("./test.mp4", $"{folder}/test.mp4");
+            var fileName = Path.GetFileName(videoFile);
+            File.Copy(videoFile, $"{folder}/{fileName}");
         }
 
         private static FFOptions SetupOptions(string outputFolder)
         {
-            var workingDirectory = AppContext.BaseDirectory;
-            return new FFOptions { WorkingDirectory = $"{workingDirectory}/{outputFolder}" };
+            return new FFOptions { WorkingDirectory = outputFolder };
         }
 
         private static void VideoToImages(string fileName, FFOptions ffOptions)

@@ -15,11 +15,12 @@ var serviceProvider = services.BuildServiceProvider();
 var mp4File = Directory.GetFiles(AppContext.BaseDirectory).SingleOrDefault(file => file.EndsWith(".mp4"));
 if (mp4File != null)
 {
-    FramesExtractor.ExtractFrames(mp4File, config["OutputPath"]);
-    var frames = await serviceProvider.GetRequiredService<ImageClassifier>().Classify(config["OutputPath"]);
+    var outputFolder = Path.Combine(AppContext.BaseDirectory, config["OutputPath"]);
+    FramesExtractor.ExtractFrames(mp4File, outputFolder);
+    var frames = await serviceProvider.GetRequiredService<ImageClassifier>().Classify(outputFolder);
     var result = MorseParser.Translate(frames);
 
-    var outputFile = $"{config["OutputPath"]}/result.txt";
+    var outputFile = $"{outputFolder}/result.txt";
     await File.WriteAllTextAsync(outputFile, result);
 }
 else
