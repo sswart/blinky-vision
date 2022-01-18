@@ -24,5 +24,10 @@ namespace BlinkyVision
 
             yield return list;
         }
+
+        public static bool IsBetween(this int val, int minInclusive, int maxInclusive)
+        {
+            return val >= minInclusive && val <= maxInclusive;
+        }
     }
 }

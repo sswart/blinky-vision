@@ -8,9 +8,9 @@
             On = on;
         }
 
-        public bool IsPause => !On && Duration == 2;
-        public bool IsStop => !On && Duration > 5;
-        public char? MorseValue => On ? Duration == 8 ? '-' : '.' : null;
+        public bool IsPause => !On && Duration.IsBetween(2, 4);
+        public bool IsStop => !On && Duration > 4;
+        public char? MorseValue => On ? Duration.IsBetween(6, 10) ? '-' : '.' : null;
         public int Duration { get; }
         public bool On { get; }
     }

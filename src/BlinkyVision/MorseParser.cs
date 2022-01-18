@@ -41,7 +41,7 @@
         {
             var sets = frames!.GroupWhile((prev, next) => prev.Classification == next.Classification).ToArray();
 
-            var possibleFrameCounts = new[] { 9, 10, 11 };
+            var possibleFrameCounts = new[] { 8, 9, 10, 11, 12 };
             var start = sets.First(set => possibleFrameCounts.Contains(set.Count()) && set.All(kvp => kvp.Classification == "off"));
 
             var startIndex = Array.IndexOf(sets, start);
